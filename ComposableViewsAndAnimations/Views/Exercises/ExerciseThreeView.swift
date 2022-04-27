@@ -14,18 +14,22 @@ struct ExerciseThreeView: View {
     
     // Controls whether this view is showing or not
     @Binding var showThisView: Bool
-        
+    
     // Controls what typeface the text is shown in
     @State private var typeFace: String = "Helvetica-Neue"
-
+    
     // Whether to apply the animation
     @State private var useAnimation = false
     
     // How much to rotate the text
     @State private var rotationAmount = 0.0
-
+    
+    @State private var shouldAnimate = false
+    @State var leftOffset: CGFloat = -100
+    @State var rightOffset: CGFloat = 100
+    
     // MARK: Computed properties
-
+    
     // List all fonts available
     // NOTE: This is a very useful gist...
     //       https://gist.github.com/kristopherjohnson/c825cb97b1ad1fe0bc13d709986d0763
@@ -36,7 +40,7 @@ struct ExerciseThreeView: View {
         }
         return names.sorted()
     }()
-
+    
     var body: some View {
         
         NavigationView {
@@ -65,6 +69,11 @@ struct ExerciseThreeView: View {
                 Capsule()
                     .frame(width: 200, height: 100)
                     .foregroundColor(.red)
+                    .offset(x: shouldAnimate ? rightOffset : leftOffset)
+                    .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true))
+                    .onAppear {
+                        self.shouldAnimate = true
+                    }
                 
             }
             .navigationTitle("Exercise 3")
@@ -75,7 +84,7 @@ struct ExerciseThreeView: View {
                     }
                 }
             }
-
+            
         }
         
     }

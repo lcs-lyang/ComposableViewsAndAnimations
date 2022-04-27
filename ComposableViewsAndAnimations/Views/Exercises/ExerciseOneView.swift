@@ -14,9 +14,10 @@ struct ExerciseOneView: View {
     
     // Controls whether this view is showing or not
     @Binding var showThisView: Bool
-        
-    // Whether to apply the animation
-    @State private var useAnimation = false
+    
+    @State private var scaleFactor: CGFloat = 1.0
+    
+    @State private var hue: Color = .red
 
     // MARK: Computed properties
 
@@ -28,8 +29,21 @@ struct ExerciseOneView: View {
 
                 Circle()
                     .frame(width: 200, height: 200)
-                    .foregroundColor(.blue)
-                
+                    .foregroundColor(hue)
+                    .scaleEffect(scaleFactor)
+                    .onTapGesture {
+                        if scaleFactor < 1.8 {
+                            scaleFactor += 0.1
+                            
+                            hue = Color(hue: Double.random(in: 1...360) / 360.0,
+                                        saturation: 0.8,
+                                        brightness: 0.8)
+                            
+                        } else {
+                            scaleFactor = 1
+                        }
+                    }
+                    .animation(.default)
             }
             .navigationTitle("Exercise 1")
             .toolbar {

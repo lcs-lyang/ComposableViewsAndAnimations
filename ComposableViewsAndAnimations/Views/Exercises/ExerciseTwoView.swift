@@ -14,21 +14,31 @@ struct ExerciseTwoView: View {
     
     // Controls whether this view is showing or not
     @Binding var showThisView: Bool
-        
-    // Whether to apply the animation
-    @State private var useAnimation = false
-
+    
+    @State private var opacity = 1.0
+    
+    
+    
     // MARK: Computed properties
-
+    
     var body: some View {
         
         NavigationView {
             
             VStack {
-
+                
                 Circle()
                     .frame(width: 200, height: 200)
                     .foregroundColor(.blue)
+                    .onTapGesture {
+                        withAnimation{
+                            opacity -= 0.2
+                            
+                        }
+                    }
+                    .opacity(opacity)
+                
+                
                 
             }
             .navigationTitle("Exercise 2")
@@ -39,7 +49,7 @@ struct ExerciseTwoView: View {
                     }
                 }
             }
-
+            
         }
         
     }
