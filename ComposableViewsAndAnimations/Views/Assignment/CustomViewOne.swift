@@ -25,11 +25,7 @@ struct CustomViewOne: View {
                    .offset(y: expand ? -200 : 0)
                    .animation(.default)
                    .onTapGesture {
-                       if expand == true {
-                            expand = false
-                       } else {
-                           expand = true
-                       }
+                       expand.toggle()
                    }
             
     }
