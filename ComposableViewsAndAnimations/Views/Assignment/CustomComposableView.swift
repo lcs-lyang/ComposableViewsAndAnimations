@@ -38,7 +38,7 @@ struct CustomComposableView: View {
                 .repeatForever(autoreverses: true)
         )
         
-        .onReceive(timer) { input in
+        .onReceive(timer) { Input in
             
             // Turn once
             rotation = 360.0

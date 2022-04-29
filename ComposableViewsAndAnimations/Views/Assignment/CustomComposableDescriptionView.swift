@@ -12,6 +12,8 @@ struct CustomComposableDescriptionView: View {
     // MARK: Stored properties
     @State private var phrase: String = ""
     
+    
+    
     // MARK: Computed properties
     var body: some View {
         
@@ -25,9 +27,9 @@ struct CustomComposableDescriptionView: View {
                     .padding(.top)
                 
                 Text("""
-                    Replace this with a description of how to use this view.
+                    This view could be used if you want your users to select what information they want to see. This can be an option if you do not want to overload your page wth data.
 
-                    If the view accepts a parameter, provide a control to enter the input below.
+                    Plase enter today's date!
                     """)
                 
                 TextField("Enter an input value", text: $phrase)
@@ -36,9 +38,9 @@ struct CustomComposableDescriptionView: View {
             .padding(.bottom)
             
             List {
-                NavigationLink(destination: CustomComposableView()) {
-                    SimpleListItemView(title: "My Composable View",
-                                       caption: "A brief description of my view")
+                NavigationLink(destination: ExpandingCircle(inputMessage: "")) {
+                    SimpleListItemView(title: "Expanding Circle",
+                                       caption: "A circle that expands to a rectangle, vice versa.")
                 }
             }
             
