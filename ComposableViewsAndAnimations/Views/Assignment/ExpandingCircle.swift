@@ -54,7 +54,8 @@ struct ExpandingCircle: View {
                         )
                     
                     Text("\(inputMessage)")
-                        .foregroundColor(.purple)
+                        .foregroundColor(.white)
+                        .bold()
                         .opacity(inputOpacity ? 1.0 : 0.0)
                         .offset(x: 0, y: 175)
                         .animation(

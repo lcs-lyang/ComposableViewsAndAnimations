@@ -38,7 +38,7 @@ struct CustomComposableDescriptionView: View {
             .padding(.bottom)
             
             List {
-                NavigationLink(destination: ExpandingCircle(inputMessage: "")) {
+                NavigationLink(destination: ExpandingCircle(inputMessage: phrase)) {
                     SimpleListItemView(title: "Expanding Circle",
                                        caption: "A circle that expands to a rectangle, vice versa.")
                 }
