@@ -37,9 +37,6 @@ struct ExpandingCircle: View {
                             expand.toggle()
                             dateOpacity.toggle()
                             inputOpacity.toggle()
-                            
-                            
-                            
                         }
                         .padding()
                     
@@ -50,7 +47,6 @@ struct ExpandingCircle: View {
                             Animation
                                 .easeIn(duration: 0.07)
                                 .delay(0.2)
-                                
                         )
                     
                     Text("\(inputMessage)")
@@ -62,7 +58,6 @@ struct ExpandingCircle: View {
                             Animation
                                 .easeIn(duration: 0.07)
                                 .delay(0.2)
-                                
                         )
                     
                 }

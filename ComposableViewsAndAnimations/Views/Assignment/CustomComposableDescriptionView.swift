@@ -42,6 +42,12 @@ struct CustomComposableDescriptionView: View {
                     SimpleListItemView(title: "Expanding Circle",
                                        caption: "A circle that expands to a rectangle, vice versa.")
                 }
+                
+                NavigationLink(destination: FloatingMenu()) {
+                    SimpleListItemView(title: "Floating Menu",
+                                       caption: "A circle that shows the option of using your camera or photo album")
+                }
+                
             }
             
         }
